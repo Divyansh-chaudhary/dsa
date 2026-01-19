@@ -30,4 +30,4 @@ var findMaxConsecutiveOnes = function (nums) {
   max = Math.max(max, currentLength);
   return max;
 };
-console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
+console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 2]));
