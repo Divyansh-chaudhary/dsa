@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .box {
+        background-color: red;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box-1">
+      first
+      <div class="box 2">Lorem ipsum,</div>
+      <div class="box 3">Lorem ipsum,</div>
+    </div>
+    <script>
+      function run(event) {
+        console.log("attched: ", event.currentTarget);
+        console.log("clicked: ", event.target);
+      }
+      document
+        .getElementById("box-1")
+        .addEventListener("click", run, { capture: true });
+    </script>
+  </body>
+</html>
