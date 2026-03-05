@@ -1,19 +1,18 @@
-const selectionSort = (arr) => {
-  console.log("arr.length :>> ", arr.length);
-  let min = Infinity;
-  for (let i = 0; i < arr.length; i++) {
-    console.log("i < arr.length :>> ", i < arr.length);
-    // let j = i;
-    // console.log("object", i);
-    // if (i === 10) return;
-    // while (j < arr.length) {
-    //   min = Math.min(arr[j], min);
-    //   j++;
-    // }
-    // const temp = arr[i];
-    // arr[i] = arr[j];
-    // arr[j] = temp;
-    // min = Infinity;
+// https://takeuforward.org/sorting/selection-sort-algorithm
+// O(n2)
+const arr = [10, 9, 8, 7, 6, 5, 4, 3, 2];
+
+for (let i = 0; i < arr.length - 1; i++) {
+  const smallest = { value: arr[i], index: i };
+  for (let j = i + 1; j < arr.length; j++) {
+    if (smallest.value > arr[j]) {
+      smallest.value = arr[j];
+      smallest.index = j;
+    }
   }
-};
-console.log(selectionSort([64, 25, 12, 22, 11]));
+  const temp = arr[i];
+  arr[i] = smallest.value;
+  arr[smallest.index] = temp;
+}
+
+console.log(arr);
