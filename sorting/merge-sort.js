@@ -1,3 +1,9 @@
+/**
+ * split array in two and call sort function until reaches to the length of 1
+ * To merge, we compare elements from both halves one by one
+ * and place the smaller element into a new array,
+ * continuing this until all elements from both halves are used.
+ */
 const mergeSortedArray = (arr1, arr2) => {
   const results = [];
   let left = 0;

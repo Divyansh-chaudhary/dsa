@@ -1,3 +1,7 @@
+/**
+ * it finds smallest in each iteration for whole array for every element
+ * and place it to the right position
+ */
 // https://takeuforward.org/sorting/selection-sort-algorithm
 // O(n2)
 const arr = [10, 9, 8, 7, 6, 5, 4, 3, 2];
@@ -10,9 +14,7 @@ for (let i = 0; i < arr.length - 1; i++) {
       smallest.index = j;
     }
   }
-  const temp = arr[i];
-  arr[i] = smallest.value;
-  arr[smallest.index] = temp;
+  [arr[i], arr[smallest.index]] = [smallest.value, arr[i]];
 }
 
 console.log(arr);
