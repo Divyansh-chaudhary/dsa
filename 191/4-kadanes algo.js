@@ -1,7 +1,13 @@
-// Kadane's Algorithm : Maximum Subarray Sum in an Array
+// Kadane's Algorithm
+//  : Maximum Subarray Sum in an Array
 // Problem Statement: Given an integer array nums, find the subarray with the largest sum and
 // return the sum of the elements present in that subarray.
 // A subarray is a contiguous non - empty sequence of elements within an array.
+
+
+// if we add 
+// Kadane's Algorithm
+// don't add big negative on positive sum instead set sum to 0
 
 /**
 sum all digits store the sum in total, keep subtracting last one by one, compare the largest and store sum
@@ -13,19 +19,37 @@ iterate over each element, store sum and max result of sum, if sum becomes negat
 O(n)
  */
 
-const kadaneAlgo = (arr) => {
+const maxSubArraySum = (arr) => {
     let sum = 0;
     let max = -Infinity;
-    let subArray = []
     for (let i = 0; i < arr.length; i++) {
-        const add = arr[i] + sum
-        sum = add < 0 ? 0 : add;
-        max = Math.max(max, add);
-        if (add >= 0) subArray.push(arr[i])
-        else subArray = []
+        sum += arr[i];
+        if (sum > max) max = sum;
+        if (sum < 0) sum = 0;
     }
-    return subArray;
+    return max;
 }
 
-console.log(kadaneAlgo([2, 3, -7, 4, 7, -4]));
-console.log(kadaneAlgo([-2, -3, -7, -4, -7, -4]));
+const maxSubArray = (arr) => {
+    let sum = 0;
+    let max = -Infinity;
+    let start = 0, end = 0, tempStart = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+
+        if (sum > max) {
+            max = sum;
+            end = i;
+            start = tempStart;
+        }
+
+        if (sum < 0) {
+            sum = 0;
+            tempStart = i + 1;
+        }
+    }
+    return arr.filter((_, i) => i >= start && i <= end)
+}
+
+console.log(maxSubArraySum([2, 3, -7, 4, 7, -4]));
+console.log(maxSubArray([-2, -3, -7, -4, -7, -4]));

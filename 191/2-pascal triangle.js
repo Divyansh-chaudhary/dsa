@@ -18,6 +18,7 @@ const makePascalArray = (n) => {
             }
         }
     }
+    console.log(result);
 }
 
 makePascalArray(6);
