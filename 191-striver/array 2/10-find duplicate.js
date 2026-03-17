@@ -12,7 +12,7 @@ var findDuplicate = function (nums) {
     // Better approach O(n) space and O(n) time
     // create map of numbers, if any number appears more than once return
 
-    // optimal approach O(1) space and O(n) time
+    // optimal approach O(1) space and O(n) time (sign inversion/negative marking)
     // for (let i = 0; i < nums.length; i++) {
     //     const index = Math.abs(nums[i]);
     //     if (nums[index] < 0) return index;
