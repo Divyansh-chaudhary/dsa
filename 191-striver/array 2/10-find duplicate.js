@@ -13,15 +13,37 @@ var findDuplicate = function (nums) {
     // create map of numbers, if any number appears more than once return
 
     // optimal approach O(1) space and O(n) time
-    for (let i = 0; i < nums.length; i++) {
-        const index = Math.abs(nums[i]);
-        if (nums[index] < 0) return index;
-        nums[index] = -nums[index];
-    }
-
-    return -1;
+    // for (let i = 0; i < nums.length; i++) {
+    //     const index = Math.abs(nums[i]);
+    //     if (nums[index] < 0) return index;
+    //     nums[index] = -nums[index];
+    // }
+    // return -1;
 
     // another approach with slow and fast pointer, to check if number appears again or not
+    let slow = nums[0];
+    let fast = nums[0];
+
+    do {
+        slow = nums[slow];
+        fast = nums[nums[fast]];
+    } while (slow !== fast)
+
+    fast = nums[0];
+
+    while (slow !== fast) {
+        slow = nums[slow];
+        fast = nums[fast];
+    }
+
+    return slow
+
+
 };
 
-console.log(findDuplicate([3, 1, 2, 4, 3])); // 3
+console.log(findDuplicate([2, 2, 3, 4, 6, 5])); // 3
+
+
+/**
+
+ */
